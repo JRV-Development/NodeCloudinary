@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h3>Add Photo</h3>
+      </div>
+      <div class="card-body">
+        <form action="/addImage" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="Enter Title"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea
+              name="content"
+              class="form-control"
+              placeholder="Enter Content"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="custom-file">
+              <input
+                type="file"
+                name="photo"
+                class="custom-file-input"
+                id="inputGroupFile04"
+              />
+              <label class="custom-file-label" for="inputGroupFile04">Choose
+                file</label>
+            </div></div>
+          <div class="mb-3 text-center">
+            <button type="submit" class="btn btn-primary">Added</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Content</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each photos}}
+          <tr>
+            <th scope="row">#</th>
+            <td>{{title}}</td>
+            <td>{{content}}</td>
+            <td>
+              <form action="/delete/image/{{_id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                <a
+                  href={{imageURL}}
+                  class="btn btn-primary"
+                  target="_blank"
+                >Views</a>
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

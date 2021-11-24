@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  {{#each photos}}
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <img src={{imageURL}} class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h2 class="card-title pricing-card-title">{{title}}</h2>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>{{content}}</li>
+          </ul>
+          <a
+            href={{imageURL}}
+            class="w-100 btn btn-lg btn-outline-primary" target="_blank"
+          >Views</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
